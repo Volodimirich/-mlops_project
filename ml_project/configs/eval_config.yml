@@ -1,0 +1,4 @@
+path:
+  input_data_path: "../dataset/heart_cleveland_upload.csv"
+  model_path: "../model/trained/model.pkl"
+  save_dir: "results"

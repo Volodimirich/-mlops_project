@@ -1,7 +1,27 @@
 path:
-  input_data_path: "../dataset/heart_cleveland_upload.csv"
-  output_model_path: "../model/trained/model.pkl"
+  input_data_path: "/home/voland/Workspace/mlops_project/ml_project/dataset/heart_cleveland_upload.csv"
+  output_model_path: "/home/voland/Workspace/mlops_project/ml_project/model/trained/model.pkl"
+
 model:
   test_size: 0.2
   random_state: 42
   shuffle: True
+
+
+feature_params:
+  categorial:
+    - 'sex'
+    - 'cp'
+    - 'fbs'
+    - 'restecg'
+    - 'exang'
+    - 'slope'
+    - 'ca'
+    - 'thal'
+  numerical:
+    - 'age'
+    - 'trestbps'
+    - 'chol'
+    - 'thalach'
+    - 'oldpeak'
+  target: 'condition'

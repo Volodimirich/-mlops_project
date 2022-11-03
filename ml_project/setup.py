@@ -17,5 +17,5 @@ setup(
             'ml_example_train = model.train:train_model'
         ]
     },
-    install_requires = required
+    install_requires=required
 )

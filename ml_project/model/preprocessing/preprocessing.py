@@ -1,6 +1,6 @@
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from entities import FeatureParams
+from model.entities import FeatureParams
 
 
 def custom_transformer(params: FeatureParams) -> ColumnTransformer:

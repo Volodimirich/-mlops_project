@@ -4,7 +4,7 @@ from typing import Tuple
 import pandas as pd
 from yaml import safe_load
 from sklearn.model_selection import train_test_split
-from entities import SplittingParams
+from model.entities import SplittingParams
 
 
 def get_config(path):

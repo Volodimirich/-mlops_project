@@ -10,6 +10,5 @@ def custom_transformer(params: FeatureParams) -> ColumnTransformer:
                                 params.str_features))
 
     if params.numerical:
-        print(params.numerical)
         transfomer_list.append(('num', StandardScaler(), params.numerical))
     return ColumnTransformer(transfomer_list)

@@ -2,7 +2,7 @@ import logging
 import pickle
 import os
 import click
-from mlflow import log_metric, log_param, log_artifacts
+from mlflow import log_metric, log_param
 from entities import SplittingParams, BadMetric
 from modules import metric_calc, get_model
 from preprocessing import get_dataset, get_config
@@ -30,7 +30,6 @@ def train_model(conf):
     log_param("feature params", data_conf)
     log_param("model params", mod_conf)
     log_param("path params", path_conf)
-
 
     logger.info(f"Opening the file {conf}")
     try:

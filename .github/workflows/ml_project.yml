@@ -42,7 +42,7 @@ jobs:
       - name: Lint with flake8
         run: |
             cd ml_project
-            flake8 . --count --exit-zero
+            flake8 . --count --exit-zero --max-complexity=5 --max-line-length=127 --statistics
       - name: Test with unittest
         run: |
             cd ml_project

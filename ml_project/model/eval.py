@@ -40,7 +40,7 @@ def train_model(conf):
         return 1
 
     timestamp = str(datetime.now().date()) + \
-                '_' + str(datetime.now().time()).replace(':', '.')
+        '_' + str(datetime.now().time()).replace(':', '.')
 
     prediction = clf.predict(data)
     logger.info('Data calculated, saving...')

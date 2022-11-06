@@ -2,10 +2,10 @@ import logging
 import pickle
 import os
 import click
-from entities.train_params import SplittingParams, BadMetric
-from preprocessing.data_load import get_dataset, get_config
-
-from modules.model import get_model
+from mlflow import log_metric, log_param, log_artifacts
+from entities import SplittingParams, BadMetric
+from modules import metric_calc, get_model
+from preprocessing import get_dataset, get_config
 
 if not os.path.exists("logs"):
     os.mkdir("logs")
@@ -27,6 +27,11 @@ def train_model(conf):
     path_conf = config["path"]
     mod_conf = config["model"]
     data_conf = config["feature_params"]
+    log_param("feature params", data_conf)
+    log_param("model params", mod_conf)
+    log_param("path params", path_conf)
+
+
     logger.info(f"Opening the file {conf}")
     try:
         x_train, x_test, y_train, y_test = get_dataset(
@@ -46,7 +51,13 @@ def train_model(conf):
     try:
         model = get_model(data_conf, x_train, y_train)
         model_score = model.score(x_test, y_test)
+        log_metric("model score", model_score)
         logger.info(f"Model get score - {model_score}")
+
+        metric_val = metric_calc(model.predict(x_test), y_test,
+                                 mod_conf["metric"])
+        log_metric(f'model {mod_conf["metric"]}', metric_val)
+        logger.info(f'Model {mod_conf["metric"]}  - {metric_val}')
     except Exception as err:
         logger.critical(f"Critical Exception on training, message - {err}")
         return 1

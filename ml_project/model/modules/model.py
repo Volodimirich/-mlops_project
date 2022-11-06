@@ -1,5 +1,5 @@
-from model.preprocessing import custom_transformer
-from model.entities import FeatureParams, BadModel
+from preprocessing import custom_transformer
+from entities import FeatureParams, BadModel
 
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split

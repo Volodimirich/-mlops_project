@@ -1,4 +1,8 @@
 path:
-  input_data_path: "../dataset/heart_cleveland_upload.csv"
-  model_path: "../model/trained/model.pkl"
-  save_dir: "results"
+  input_data_path: "/home/voland/Workspace/mlops_project/ml_project/dataset/heart_cleveland_upload.csv"
+  model_path: "/home/voland/Workspace/mlops_project/ml_project/model/trained/model.pkl"
+  save_dir: "/home/voland/Workspace/mlops_project/ml_project/results"
+
+
+dataset:
+  drop_columns: ['condition']

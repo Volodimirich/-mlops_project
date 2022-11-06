@@ -4,7 +4,7 @@ from typing import Tuple
 import pandas as pd
 from yaml import safe_load
 from sklearn.model_selection import train_test_split
-from model.entities.train_params import SplittingParams
+from entities import SplittingParams
 
 
 def get_config(path):
@@ -32,4 +32,5 @@ def get_dataset(
 def get_eval_data(
         path: str,
 ) -> pd.DataFrame:
+
     return pd.read_csv(path)
